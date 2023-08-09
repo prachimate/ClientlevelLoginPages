@@ -1,0 +1,353 @@
+﻿
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-BlackItalic') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background: url("../Graphics/LoginBackground1.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: right bottom;
+}
+
+* {
+    margin: 0px;
+    padding: 0;
+    font-family: "Roboto",sans-serif !important;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+}
+
+sub {
+    font-size: 1vw;
+}
+
+.company-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .company-name label {
+        color: white;
+        /*font-family: 'Times New Roman', Times, serif;*/
+        font-family: 'Acme' !important;
+        /*font-size: 45px;*/
+        font-size: 3.7vw;
+        font-weight: 100;
+        text-shadow: 7px 5px 5px black;
+    }
+
+.back-box {
+    width: 630px; /*40vw*/
+    height: 300px; /*38vh*/
+    background: linear-gradient(180deg, #2f7ec1 0%, #023565 100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    border: 2px solid #fff;
+    /*box-shadow: 1px 22px 8px -10px rgba(0, 0, 0, 0.69);*/
+    box-shadow: 0px 15px 11px rgb(0 0 0 / 50%);
+}
+
+.front-box {
+    width: 345px; /*24vw*/
+    height: 310px; /*41vh*/
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    padding: 10px 15px;
+    transition: left 0.8s ease-in-out;
+    box-shadow: 0px 15px 11px rgb(0 0 0 / 50%);
+}
+
+.policy-section {
+    position: absolute;
+    right: 25px;
+    top: -7px;
+}
+
+.moving {
+    left: 68%;
+}
+
+.box-text {
+    color: white;
+    font-size: 15px;
+}
+
+.chkBoxImg-style {
+    margin-top: 5px;
+}
+
+.back-box-text {
+    transform: rotate(270deg);
+    color: white;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.login-text {
+    position: absolute;
+    bottom: 30px;
+    left: -8px;
+    font-size: 20px;
+}
+
+.forgetPswd-text {
+    position: absolute;
+    bottom: 85px;
+    left: -60px;
+    font-size: 20px;
+}
+
+.mainLoginForm hr {
+    margin: 5px 0;
+}
+
+/* Button style */
+.right-btnGrp {
+    position: absolute;
+    width: 160px;
+    right: 10%;
+    bottom: -1px;
+    margin-bottom: 5px;
+}
+
+    .right-btnGrp div, .left-btnGrp div {
+        display: flex;
+        /*margin-bottom: 5px;*/
+        flex-direction: row;
+    }
+
+        .right-btnGrp div button {
+            font-style: italic;
+        }
+
+.left-btnGrp {
+    position: absolute;
+    width: 30%;
+    left: 8%;
+    top: 20%;
+}
+
+.top-btnGrp {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 0px;
+    margin: -8px 0px 0px;
+}
+
+.btn-styles {
+    border: none;
+    background-color: transparent !important;
+    font-size: 14px;
+    box-shadow: 0px 11px 7px -12px rgb(0 0 0 / 75%);
+    cursor: pointer;
+}
+
+    .btn-styles :active {
+        background-color: transparent;
+        background-color: #333;
+        border-color: #333;
+        color: #eee;
+    }
+
+#btn-frgtpswd {
+    margin: 0px 0px 5px -6px;
+}
+
+#btn-frgtpswd,
+#btn-accOpen, #btn-back {
+    color: white;
+    font-style: italic;
+    text-decoration-line: none;
+}
+
+#btn-login, #btn-cancel, #frgtPswd-cancel, #frgtPswd-submit, #btn-sendOtp {
+    background: linear-gradient(to bottom, #1e5799 16%,#1e5799 16%,#207cca 67%,#2f7ec1 100%,#023565 100%);
+    border-color: #1e5799;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.loginBtn-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.active {
+    border-bottom: 3px ridge #4593e3 !important;
+    box-shadow: none !important;
+}
+
+#btn-loginPswd, #btn-loginOtp {
+    font-size: 13px;
+    box-shadow: none;
+    border: none;
+    color: #155799;
+    background-color: #F1F2F2;
+    transition: background-color 0.5s ease;
+}
+
+    #btn-loginPswd:hover, #btn-loginOtp:hover {
+        background-color: #155799;
+        border-color: #155799;
+        color: #F1F2F2;
+    }
+
+.top-btnGrp img {
+    opacity: 1;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    margin-right: 3px;
+    margin-top: -3px;
+    z-index: 1111;
+    cursor: pointer;
+    /*box-shadow: 0px 5px 4px 1px rgb(116 113 113);*/
+}
+
+    .top-btnGrp img:hover {
+        outline-width: 3px;
+        opacity: .5;
+    }
+
+.mainLoginForm,
+.frgtPswdForm,
+.loginOtpForm {
+    margin-top: 10px;
+}
+
+.btm-height {
+    margin-bottom: 10px;
+}
+
+.hide {
+    display: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 9%;
+    text-align: center;
+    /*height: 5%;*/
+    padding: 5px;
+    left: 25%;
+    /*box-shadow: 0px 15px 11px rgb(0 0 0 / 50%);*/
+    /* box-shadow: 0px 10px 9px -4px rgba(0, 0, 0, 0.91); */
+    /*box-shadow: 0px 14px 8px -11px rgb(0 0 0 / 69%);*/
+    width: 50%;
+}
+
+    footer div {
+        display: flex;
+        justify-content: space-around;
+        color: black;
+    }
+
+        footer div label {
+            font-size: 18px;
+            color: white;
+            font-family: Georgia, "Times New Roman", Times, serif !important;
+        }
+
+/*@media screen and (min-width: 1400px) {
+    .container {
+        width: 1370px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .container {
+        width: 1570px;
+    }
+
+    * {
+        font-size: 13px;
+    }
+
+    footer div label {
+        font-size: 20px;
+    }
+
+    .front-box {
+        width: 380px;
+        height: 330px;
+    }
+
+    .back-box {
+        width: 650px;
+        height: 310px;
+    }
+
+    .mainLoginForm hr {
+        margin: 10px 0;
+    }
+
+    #btn-login, #btn-cancel, #frgtPswd-cancel, #frgtPswd-submit, #btn-sendOtp {
+        font-size: 15px;
+    }
+
+    #btn-loginPswd, #btn-loginOtp {
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 1900px) {
+    .container {
+        width: 1870px;
+    }
+
+    * {
+        font-size: 15px;
+    }
+
+    footer div label {
+        font-size: 26px;
+    }
+
+    .front-box {
+        width: 400px;
+        height: 350px;
+    }
+
+    .back-box {
+        width: 680px;
+        height: 340px;
+    }
+
+    .mainLoginForm hr {
+        margin: 15px 0;
+    }
+
+    #btn-login, #btn-cancel, #frgtPswd-cancel, #frgtPswd-submit, #btn-sendOtp {
+        font-size: 20px;
+    }
+
+    #btn-loginPswd, #btn-loginOtp {
+        font-size: 16px;
+    }
+
+    #btn-frgtpswd,
+    #btn-accOpen, #btn-back {
+        font-size: 15px;
+    }
+}*/

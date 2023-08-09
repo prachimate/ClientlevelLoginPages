@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kotak_Login</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css" />
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/jquery.js"></script>
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" />
+    <script src="../scripts/jquery.js"></script>
+    <script src="../jqwidgets/jqxcore.js"></script>
+    <script src="../jqwidgets/jqxbuttons.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../jqwidgets/jqxscrollbar.js"></script>
+    <script src="../jqwidgets/jqxlistbox.js"></script>
+    <script src="../jqwidgets/jqxdropdownlist.js"></script>
+    <script src="../jqwidgets/jqxinput.js"></script>
+    <script src="../jqwidgets/jqxradiobutton.js"></script>
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.light.css" />
+    <link rel="stylesheet" href="../styles/Kotak_Login.css" />
+    <script src="../scripts/Kotak_Login.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="client-logo">
+        <img src="../images/ClientLogo.png" height="40" width="55" />
+      </div>
+    </header>
+    <div class="main-container col-md-12 row">
+      <div class="login-container">
+        <h3 class="loginLbl">Login</h3>
+        <div class="loginForm row">
+          <div class="mb-2">
+            <a href="#" class="policies-link">*Policies and Procedures</a>
+          </div>
+          <div class="mb-2">
+            <div id="company-name" class="dropDownField"></div>
+          </div>
+          <div class="mb-2">
+            <input type="text" class="form-control text-input" id="user-id" />
+            <!-- <label for="user-id" class="formLabel">User ID</label> -->
+          </div>
+          <div class="mb-2">
+            <input
+              type="password"
+              class="form-control text-input"
+              id="user-pswd"
+              placeholder="Password"
+            />
+            <a href="#" class="link-primary frgtPswd-link">Forget Password?</a>
+            <!-- <label for="lblPswd" class="formLabel">Password</label> -->
+          </div>
+          <!-- <div class="mb-2">
+            <div id="code-type" class="dropDownField"></div>
+          </div>
+          <div class="mb-2">
+            <div id="login-type" class="dropDownField"></div>
+          </div> -->
+          <div class="mb-2">
+            <div class="input_field captch_box">
+              <input type="text" value="" disabled />
+              <button class="refresh_button">
+                <i class="bi bi-arrow-counterclockwise"></i>
+              </button>
+            </div>
+            <div class="input_field captch_input">
+              <input type="text" placeholder="Enter captcha" />
+            </div>
+          </div>
+          <div class="mb-1">
+            <input
+              type="button"
+              value="Login"
+              id="btn-Login"
+              class="login__submit"
+            />
+          </div>
+          <div class="mb-1">
+            <a href="#" class="unlockUID">Unlock UserID</a>
+          </div>
+          <div class="mb-1">
+            <h6 class="HrWithtext">OR</h6>
+          </div>
+          <div class="mb-2">
+            <input
+              type="button"
+              value="Login with OTP"
+              id="btn-OtpLogin"
+              class="login__submit"
+              data-bs-toggle="modal"
+              data-bs-target="#Modal"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <label for="version"> Version: 23.7.26.1/2.1.9.5</label>
+    </footer>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="Modal"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="ModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="ModalLabel">Login with OTP</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body ModalBody">
+            <div class="loginOtp-form">
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control text-input"
+                  id="mobileNo"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  class="form-control text-input"
+                  id="OtpForLogin"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="button"
+                  value="Send OTP"
+                  class="btn-style"
+                  id="btn-sendOtp"
+                />
+              </div>
+            </div>
+            <div class="frgtPswd-form">
+              <div class="mb-2">
+                <!-- <input
+                  type="text"
+                  class="form-control text-input"
+                  id="mobileNo"
+                  placeholder="Mobile Number"
+                /> -->
+                <input
+                  id="ClosureInputOtp"
+                  type="number"
+                  style="text-align: center; margin-top: 10px"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

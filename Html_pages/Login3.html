@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login3</title>
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css" />
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/jquery.js"></script>
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" />
+    <script src="../scripts/jquery.js"></script>
+    <script src="../jqwidgets/jqxcore.js"></script>
+    <script src="../jqwidgets/jqxbuttons.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../jqwidgets/jqxscrollbar.js"></script>
+    <script src="../jqwidgets/jqxlistbox.js"></script>
+    <script src="../jqwidgets/jqxdropdownlist.js"></script>
+    <script src="../jqwidgets/jqxinput.js"></script>
+    <script src="../jqwidgets/jqxradiobutton.js"></script>
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.light.css" />
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.energyblue.css" />
+    <link rel="stylesheet" href="../styles/Login3.css" />
+    <script src="../scripts/Login3.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="MainContainer">
+      <div class="header">
+        <!-- <img src="../images/ClientLogo.png" alt="" srcset=""> -->
+      </div>
+      <div class="middle-content">
+        <div class="content1">
+          <div>
+            <div class="mainForm">
+              <div class="loginLabel">
+                <div class="client-logo">
+                  <img src="../images/ClientLogo.png" alt="" srcset="" />
+                </div>
+                <div><h4>Login to ClientLevel</h4></div>
+              </div>
+              <div class="loginForm">
+                <div class="left-form">
+                  <div class="mb-3">
+                    <div id="company-name" class="dropDownField"></div>
+                  </div>
+                  <div class="mb-3 input-group">
+                    <i class="bi bi-person-fill-down input-group-text"></i>
+                    <input
+                      type="text"
+                      class="form-control text-input"
+                      placeholder="User ID"
+                      id="user-id"
+                    />
+                  </div>
+                  <div class="mb-3 input-group">
+                    <i class="bi bi-key input-group-text"></i>
+                    <input
+                      type="password"
+                      class="form-control text-input"
+                      id="user-pswd"
+                      placeholder="Password"
+                    />
+                  </div>
+                  <div class="mb-3 codeType_div">
+                    <div id="backoffc_radiobtn">
+                      <label>Backoffice</label>
+                    </div>
+                    <div id="terminal_radiobtn">
+                      <label>Terminal</label>
+                    </div>
+                  </div>
+                  <div class="mb-2">
+                    <div id="login-type" class="dropDownField"></div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="input_field captch_box">
+                      <input type="text" value="" disabled />
+                      <button class="refresh_button" type="button">
+                        <i class="bi bi-arrow-counterclockwise"></i>
+                      </button>
+                    </div>
+                    <div class="input_field captch_input">
+                      <input type="text" placeholder="Enter captcha" />
+                    </div>
+                  </div>
+                  <div class="mb-1">
+                    <button class="button login__submit" id="btn-Login">
+                      <span class="button__text">Log In</span>
+                      <i class="bi bi-chevron-right button__icon"></i>
+                    </button>
+                  </div>
+                  <div class="mb-1">
+                    <a href="#" class="policies-link"
+                      >*Policies and Procedures</a
+                    >
+                  </div>
+                </div>
+                <div class="separator">
+                  <div class="line1"></div>
+                  <label for="" class="Or-Text"><span>OR</span></label>
+                  <div class="line2"></div>
+                </div>
+                <div class="right-form">
+                  <div class="mb-3">
+                    <button
+                      type="button"
+                      class="right-btnStyle form-control login__submit"
+                      id="btn-loginOtp"
+                    >
+                      Login With OTP
+                    </button>
+                  </div>
+                  <div class="mb-3">
+                    <button
+                      type="button"
+                      class="form-control right-btnStyle login__submit"
+                      id="btn-UnlockId"
+                      class=""
+                    >
+                      Unlock User ID
+                    </button>
+                  </div>
+                  <div class="mb-3"></div>
+                  <div class="mb-3">
+                    <button
+                      type="button"
+                      class="form-control right-btnStyle login__submit"
+                      id="btn-frgtPswd"
+                      class=""
+                    >
+                      Forget Password
+                    </button>
+                  </div>
+                  <div class="mb-3">
+                    <button
+                      type="button"
+                      class="form-control right-btnStyle login__submit"
+                      id="btn-AccOpen"
+                      class=""
+                    >
+                      New Account Opening
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="content2"></div>
+      <div class="footer"><label for="">Version: 23.7.26.1/2.1.9.5</label></div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="Modal" data-bs-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="ModalLabel">Login with OTP</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body ModalBody">
+            <div>
+              <img
+                src="../images/login-otp.png"
+                alt="Login With OTP"
+                width="90"
+              />
+            </div>
+            <div class="loginOtp-form">
+              <div class="mb-3">
+                <i class="bi bi-phone input-icons"></i>
+                <input
+                  type="text"
+                  class="form-control modal-textCtrl text-input"
+                  id="mobileNo"
+                />
+              </div>
+              <div class="mb-3">
+                <i class="bi bi-123 input-icons"></i>
+                <input
+                  type="text"
+                  class="form-control modal-textCtrl text-input"
+                  id="OtpForLogin"
+                />
+              </div>
+              <div class="mb-3">
+                <button class="button login__submit btn-style" id="btn-sendOtp">
+                  <span class="button__text">Send OTP</span>
+                  <i class="bi bi-chevron-right button__icon"></i>
+                </button>
+              </div>
+              <div class="mb-3">
+                <div><label for="">OTP not received?</label></div>
+                <div><a href="" class="link-primary">Resend OTP</a></div>
+              </div>
+            </div>
+            <div class="frgtPswd-form"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css" />
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/jquery.js"></script>
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" />
+
+    <script src="../jqwidgets/jqxcore.js"></script>
+    <script src="../jqwidgets/jqxbuttons.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../jqwidgets/jqxscrollbar.js"></script>
+    <script src="../jqwidgets/jqxlistbox.js"></script>
+    <script src="../jqwidgets/jqxdropdownlist.js"></script>
+    <script src="../jqwidgets/jqxinput.js"></script>
+    <script src="../jqwidgets/jqxradiobutton.js"></script>
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.light.css" />
+    <link rel="stylesheet" href="../styles/ClientLevel_Login1.css" />
+    <script src="../scripts/ClientLevel_Login1.js"></script>
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.energyblue.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <title>ClientLevel_Login1</title>
+  </head>
+  <body>
+    <div class="container">
+      <header></header>
+      <div class="screen col-md-12">
+        <div class="form">
+          <div class="screen__content">
+            <i
+              class="bi bi-three-dots-vertical bi-info"
+              onclick="openLoginInfo()"
+              title="Click for more Option"
+            ></i>
+            <form class="login">
+              <div class="mb-2">
+                <h3 class="login-lbl">Login</h3>
+              </div>
+              <div class="mb-3">
+                <div id="company-name" class="dropDownField"></div>
+              </div>
+              <div class="mb-3 input-group">
+                <i class="bi bi-person-fill-down input-group-text"></i>
+                <input
+                  type="text"
+                  class="form-control text-input"
+                  id="user-id"
+                />
+              </div>
+              <div class="mb-3 input-group">
+                <i class="bi bi-key input-group-text"></i>
+                <input
+                  type="password"
+                  class="form-control text-input"
+                  id="user-pswd"
+                  placeholder="Password"
+                />
+              </div>
+              <div class="mb-3 codeType_div">
+                <div id="backoffc_radiobtn"><label>Backoffice</label></div>
+                <div id="terminal_radiobtn"><label>Terminal</label></div>
+              </div>
+              <div class="mb-3">
+                <div id="login-type" class="dropDownField"></div>
+              </div>
+              <div class="mb-3">
+                <div class="input_field captch_box">
+                  <input type="text" value="" disabled />
+                  <button class="refresh_button" type="button" >
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                  </button>
+                </div>
+                <div class="input_field captch_input">
+                  <input type="text" placeholder="Enter captcha" />
+                </div>
+              </div>
+              <div class="mb-1">
+                <button type="button" class="button login__submit" id="btn-Login">
+                  <span class="button__text">Log In</span>
+                  <i class="bi bi-chevron-right button__icon"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="screen__background">
+            <span
+              class="screen__background__shape screen__background__shape4"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape3"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape2"
+            ></span>
+            <span
+              class="screen__background__shape screen__background__shape1"
+            ></span>
+          </div>
+        </div>
+      </div>
+      <div class="box-info">
+        <div>
+          <i
+            class="bi bi-x-lg"
+            onclick="closeLoginInfo();"
+            title="Back to Sign In"
+          ></i>
+          <a href="#" class="policies-link">*Policies and Procedures</a>
+        </div>
+        <div class="btn-grp">
+          <div class="mb-2 input-group">
+            <i class="bi bi-unlock input-group-text"></i>
+            <button
+              type="button"
+              class="form-control unlockUID box-info-btn"
+              id="btn-UnlockId"
+              class=""
+            >
+              Unlock User ID
+            </button>
+          </div>
+          <div class="mb-2 input-group">
+            <i class="bi bi-patch-question input-group-text"></i>
+            <button
+              type="button"
+              class="form-control frgtPswd-link box-info-btn"
+              id="btn-frgtPswd"
+            >
+              Forget Password
+            </button>
+          </div>
+          <div class="mb-2 input-group">
+            <i class="bi bi-person-vcard input-group-text"></i>
+            <button
+              type="button"
+              class="form-control box-info-btn"
+              id="btn-AccOpen"
+              class=""
+            >
+              New Account Opening
+            </button>
+          </div>
+          <div class="mb-2 input-group">
+            <i class="bi bi-person-fill-x input-group-text"></i>
+            <button
+              type="button"
+              class="form-control box-info-btn"
+              id="btn-loginOtp"
+            >
+              Login with OTP
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer><label for="">Version: 23.7.26.1/2.1.9.5</label></footer>
+    <!-- Modal -->
+    <div class="modal fade" id="Modal" data-bs-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="ModalLabel">Login with OTP</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body ModalBody">
+            <div>
+              <img
+                src="../images/login-otp.png"
+                alt="Login With OTP"
+                width="90"
+              />
+            </div>
+            <div class="loginOtp-form">
+              <div class="mb-3 input-group">
+                <i class="bi bi-phone input-group-text"></i>
+                <input
+                  type="text"
+                  class="form-control modal-textCtrl"
+                  id="mobileNo"
+                />
+              </div>
+              <div class="mb-3 input-group">
+                <i class="bi bi-123 input-group-text"></i>
+                <input
+                  type="text"
+                  class="form-control modal-textCtrl"
+                  id="OtpForLogin"
+                />
+              </div>
+              <div class="mb-3">
+                <button class="button login__submit btn-style" id="btn-sendOtp">
+                  <span class="button__text">Send OTP</span>
+                  <i class="bi bi-chevron-right button__icon"></i>
+                </button>
+              </div>
+              <div class="mb-3">
+                <div><label for="">OTP not received?</label></div>
+                <div><a href="" class="link-primary">Resend OTP</a></div>
+              </div>
+            </div>
+            <div class="frgtPswd-form"></div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

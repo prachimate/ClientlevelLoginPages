@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../Bootstrap/bootstrap.min.css" />
+  <script src="../scripts/bootstrap.min.js"></script>
+  <script src="../scripts/jquery.js"></script>
+  <link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" />
+  <script src="../scripts/jquery.js"></script>
+  <script src="../jqwidgets/jqxcore.js"></script>
+  <script src="../jqwidgets/jqxbuttons.js"></script>
+  <script src="../jqwidgets/jqx-all.js"></script>
+  <script src="../jqwidgets/jqxscrollbar.js"></script>
+  <script src="../jqwidgets/jqxlistbox.js"></script>
+  <script src="../jqwidgets/jqxdropdownlist.js"></script>
+  <script src="../jqwidgets/jqxinput.js"></script>
+  <script src="../jqwidgets/jqxradiobutton.js"></script>
+  <link rel="stylesheet" href="../jqwidgets/styles/jqx.energyblue.css" />
+  <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/New_Login.css" />
+  <title>New_Login</title>
+</head>
+<script>
+  $(document).ready(function () {
+    $("#btn_frgtPswd,#btn_back,#btn_AccOpen").jqxButton({
+      width: "100%",
+      height: 30,
+    });
+    $(".dropdown-ctrl").jqxDropDownList({
+      theme: "energyblue",
+      width: "98%",
+      height: 32,
+      dropDownHeight: 60,
+      selectedIndex: 0,
+    });
+    $("#cCompany_name").jqxDropDownList({
+      placeHolder: "Company Name",
+      source: [
+      "Wealth First Portfolio Managers Ltd",
+        "SURESH RATHI SECURITIES PVT.",
+      ],
+    });
+    $(".text-ctrl").jqxInput({
+      theme: "energyblue",
+      width: "98%",
+      height: 32,
+    });
+    var code_type = ["Backoffice", "Terminal"];
+    $("#cCode_type").jqxDropDownList({
+      source: code_type,
+      dropDownHeight: 60,
+      selectedIndex: 0,
+    });
+
+    $(".checkbox-cntrl").jqxRadioButton({
+      height: 30,
+      width: 110,
+      theme: "energyblue",
+    });
+    $("#btn-login,#btn-cancel,#frgtPswd-submit,#frgtPswd-cancel").jqxButton({
+      width: 100,
+      height: 34,
+      theme: "energyblue",
+    });
+    $("#btn-loginOtp,#btn-loginPswd,#btn-sendOtp").jqxButton({
+      height: 22,
+      width: "50%",
+    });
+    $("#btn-sendOtp").jqxButton({
+      height: 30,
+      width: "96%",
+    });
+    $("#all-chkbox").jqxRadioButton({ checked: true });
+    $("#btn_frgtPswd").click(function () {
+      $(".formBox").addClass("active");
+      $("body").addClass("active");
+      $(".login-text").toggleClass("hide");
+      $(".forgetPswd-text").toggleClass("hide");
+      $(".frgtPswd-form").toggleClass("hide");
+      $(".mainLoginForm").toggleClass("hide");
+    });
+    // $("#btn_back").click(function () {
+    //   $(".formBox").removeClass("active");
+    //   $("body").removeClass("active");
+    //   $(".login-text").toggleClass("hide");
+    //   $(".forgetPswd-text").toggleClass("hide");
+    // });
+    $("#btn-loginOtp,#btn-loginPswd").click(function () {
+      $(".loginOtpForm").toggleClass("hide");
+      $(".loginPswdForm").toggleClass("hide");
+      $("#btn-loginOtp,#btn-loginPswd").toggleClass("active");
+    });
+    // $("#btn-loginPswd").click(function () {
+    //   $(".loginOtpForm").toggleClass("hide");
+    //   $(".loginPswdForm").toggleClass("hide");
+    // });
+    $("#frgtPswd-cancel,#btn_back").click(function () {
+      $(".formBox").removeClass("active");
+      $("body").removeClass("active");
+      $(".forgetPswd-text").toggleClass("hide");
+      $(".frgtPswd-form").toggleClass("hide");
+      $(".mainLoginForm").toggleClass("hide");
+      $(".login-text").toggleClass("hide");
+    });
+  });
+</script>
+
+<body>
+  <header>
+    <div class="company-name">
+      <img src="../images/ClientLogonew.jpg" alt="" />
+      <h1 class="display-4">Wealth First Portfolio Managers Ltd <sub>(2012-2013)</sub></h1>
+    </div>
+  </header>
+  <div class="container">
+    <label class="back-box-text login-text">Login</label>
+    <label class="back-box-text forgetPswd-text hide">forget password</label>
+    <div class="bg-blue">
+      <div class="left_btnGrp">
+        <button type="button" id="btn_back">
+          <img src="../images/User-Login.png" alt="Login" width="25" height="25" />
+          Login
+        </button>
+      </div>
+
+      <div class="btn_policies">
+        <a href="../Document/Policies.pdf" target="_blank" title="Policies and Procedure">
+          <img src="../images/Procedure1.png" alt="" srcset="" />
+        </a>
+      </div>
+      <div class="right_btnGrp">
+        <div>
+          <a type="button" id="btn_frgtPswd">
+            <img src="../images/Lock-Information.png" width="25" height="25" />
+            FORGET PASSWORD
+          </a>
+        </div>
+        <div>
+          <a id="btn_AccOpen" onclick="parent.open('https://122.170.107.20:444/ldclientlevelH/FreshKyc.html')">
+            <img src="../images/New.png" width="25" height="25" />
+            NEW ACCOUNT
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="formBox">
+      <div class="form mainLoginForm">
+        <form>
+          <div class="top-btnGrp">
+            <a class="form-control btn btn-light active" id="btn-loginPswd">
+              <img src="../images/User-Login.png" width="26" height="26" />Login with password</a>
+            <a class="form-control btn btn-light" id="btn-loginOtp">
+              <img src="../images/OTP.png" width="26" height="26" />Login with
+              OTP</a>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col-sm-12">
+              <div id="cCompany_name" class="dropdown-ctrl"></div>
+            </div>
+          </div>
+          <div class="row loginPswdForm">
+            <div class="col-sm-12">
+              <input type="text" class="form-control text-ctrl" id="cUserID" placeholder="Enter User Id"
+                name="cUserID" />
+            </div>
+          </div>
+          <div class="row loginPswdForm">
+            <div class="col-sm-12">
+              <input type="password" class="form-control text-ctrl" id="cPasswrd" placeholder="Enter Password"
+                name="cPasswrd" />
+            </div>
+          </div>
+          <div class="row loginOtpForm hide">
+            <div class="col-sm-12">
+              <input type="text" class="form-control text-ctrl" id="cmobileNumber" placeholder="Enter Mobile number"
+                name="cmobileNumber" />
+            </div>
+          </div>
+          <div class="row loginOtpForm hide">
+            <div class="col-sm-6">
+              <input type="number" class="form-control text-ctrl" id="cloginOtp" placeholder="Enter OTP"
+                name="cloginOtp" />
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="form-control" id="btn-sendOtp">
+                Send OTP
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <div id="cCode_type" class="dropdown-ctrl"></div>
+            </div>
+          </div>
+          <div class="row checkbox-div">
+            <div class="checkbox-cntrl" id="all-chkbox">
+              <img src="../images/allinone.png" width="80" height="20" class="chkBoxImg-style" />
+            </div>
+
+            <div class="checkbox-cntrl" id="Nsdl-chkbox">
+              <img src="../images/nsdl-img.png" width="80" height="20" class="chkBoxImg-style" />
+            </div>
+
+            <div class="checkbox-cntrl" id="Cdsl-chkbox">
+              <img src="../images/cdsl-img.png" width="80" height="20" class="chkBoxImg-style" />
+            </div>
+          </div>
+          <div class="row loginBtn-div">
+            <button type="button" class="form-control" id="btn-login">
+              LOGIN
+            </button>
+            <button type="button" class="form-control" id="btn-cancel">
+              CANCEL
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="form frgtPswd-form hide">
+        <form class="">
+          <div class="row btm-height">
+            <!-- <label class="col-sm-5 col-form-label" for="cUserID">User Id</label> -->
+            <div class="col-sm-12">
+              <input type="text" class="form-control text-ctrl" id="frgtpswd-uid" placeholder="Enter User Id"
+                name="cUserID" />
+            </div>
+          </div>
+          <div class="row btm-height">
+            <div class="col-sm-12">
+              <div id="frgtpswd-SendPswd" class="dropdown-ctrl"></div>
+            </div>
+          </div>
+          <div class="row btm-height">
+            <!-- <label class="col-sm-5 col-form-label" for="cUserID">User Id</label> -->
+            <div class="col-sm-12">
+              <input type="text" class="form-control text-ctrl" id="frgtpswd-Pan" placeholder="Enter PAN number"
+                name="cPan" />
+            </div>
+          </div>
+          <div class="row btm-height">
+            <!-- <label class="col-sm-5 col-form-label" for="cUserID">User Id</label> -->
+            <div class="col-sm-12">
+              <div id="dt-DOB"></div>
+            </div>
+          </div>
+          <div class="row btm-height">
+            <!-- <label class="col-sm-5 col-form-label" for="cUserID">User Id</label> -->
+            <div class="col-sm-12">
+              <input type="text" class="form-control text-ctrl" id="frgtpswd-RegEmail"
+                placeholder="Enter Registered Email ID" name="cRegEmail" />
+            </div>
+          </div>
+          <div class="row loginBtn-div">
+            <!--<div class="col-sm-6">-->
+            <button type="button" class="form-control" id="frgtPswd-submit">
+              Submit
+            </button>
+            <!--  </div>
+      <div class="col-sm-6">-->
+            <button type="button" class="form-control" id="frgtPswd-cancel">
+              Cancel
+            </button>
+            <!-- </div>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div>
+      <label class="version fst-italic">Version: 22.9.10.1/2.1.4.9</label>
+      <label class="date-time fst-italic">21st September,2022</label>
+    </div>
+  </footer>
+</body>
+
+</html>

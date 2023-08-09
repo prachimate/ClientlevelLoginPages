@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../Bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.base.css" />
+    <script src="../scripts/jquery.js"></script>
+    <script src="../jqwidgets/jqxcore.js"></script>
+    <script src="../jqwidgets/jqxbuttons.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../jqwidgets/jqxscrollbar.js"></script>
+    <script src="../jqwidgets/jqxlistbox.js"></script>
+    <script src="../jqwidgets/jqxdropdownlist.js"></script>
+    <script src="../jqwidgets/jqxinput.js"></script>
+    <script src="../Bootstrap/bootstrap.min.js"></script>
+    <link href="../styles/ClientLevel_Login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../jqwidgets/styles/jqx.energyblue.css" />
+    <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    <title>ClientLevel_Login </title>
+</head>
+<script>
+    $(document).ready(function () {
+        $(".dropdown-ctrl").jqxDropDownList({
+            theme: "energyblue",
+            width: "98%",
+            height: 32,
+            dropDownHeight: 60,
+            selectedIndex: 0,
+        });
+        $("#frgtpswd-SendPswd").jqxDropDownList({
+            placeHolder: "Send Password via",
+            source: ["Email", "SMS", "OTP"],
+        });
+        $("#cCompany_name").jqxDropDownList({
+            placeHolder: "Company Name",
+            source: ["MAGNUM EQUITY BROKING LIMITED", "SURESH RATHI SECURITIES PVT."],
+        });
+        $(".text-ctrl").jqxInput({
+            theme: "energyblue",
+            width: "98%",
+            height: 32,
+        });
+        $("#btn-login,#btn-cancel,#frgtPswd-submit,#frgtPswd-cancel").jqxButton({
+            width: 100,
+            height: 34,
+            theme: "energyblue",
+        });
+        var code_type = ["Backoffice", "Terminal"];
+        $("#cCode_type").jqxDropDownList({
+            source: code_type,
+            dropDownHeight: 60,
+            selectedIndex: 0,
+        });
+        $("#btn-loginOtp,#btn-loginPswd").jqxButton({
+            height: 22,
+            width: '50%'
+        });
+        $("#btn-frgtpswd,#btn-accOpen,#btn-back").jqxButton({ width: '99%' });
+        $("#btn-accOpen").jqxButton({ width: 95 });
+
+        $(".checkbox-cntrl").jqxRadioButton({
+            height: 30,
+            width: "80px",
+            theme: "energyblue",
+        });
+        $("#all-chkbox").jqxRadioButton({ checked: true });
+        $("#dt-DOB").jqxDateTimeInput({
+            width: '100%',
+            height: 32,
+            theme: "energyblue",
+        });
+        $("#btn-loginOtp").click(function () {
+            $(".loginOtpForm").removeClass("hide");
+            $(".frgtPswdForm").addClass("hide");
+            $(".loginPswdForm").addClass("hide");
+        });
+        $("#btn-frgtpswd").click(function () {
+            $(".front-box").addClass("moving");
+            $(".frgtPswdForm").removeClass("hide");
+            $(".mainLoginForm").addClass("hide");
+            $(".login-text").addClass("hide");
+            $(".forgetPswd-text").removeClass("hide");
+        });
+        $("#btn-loginPswd").click(function () {
+            $(".front-box").removeClass("moving");
+            $(".frgtPswdForm").addClass("hide");
+            $(".loginPswdForm").removeClass("hide");
+            $(".loginOtpForm").addClass("hide");
+            $("#btn-loginPswd").addClass('active');
+            $("#btn-loginOtp").removeClass('active');
+        });
+        $("#btn-loginOtp").click(function () {
+            $("#btn-loginOtp").addClass('active');
+            $("#btn-loginPswd").removeClass('active');
+        });
+        $("#btn-back,#frgtPswd-cancel").click(function () {
+            $(".front-box").removeClass("moving");
+            $(".frgtPswdForm").addClass("hide");
+            $(".mainLoginForm").removeClass("hide");
+            $(".login-text").removeClass("hide");
+            $(".forgetPswd-text").addClass("hide");
+        });
+        if ($(window).width() > 1890) {
+             $("#btn-accOpen,#btn-back").css('width','')
+        }
+    });
+
+</script>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="company-name">
+                <img src="../images/ClientLogo.png" alt="">
+                <label>MAGNUM EQUITY BROKING LIMITED <sub>(2012-2013)</sub></label>
+            </div>
+        </header>
+
+        <div class="back-box">
+            <div>
+                <label class="back-box-text login-text">Login</label>
+                <label class="back-box-text forgetPswd-text hide">forget password</label>
+            </div>
+            <div class="policy-section">
+                <a href="../Document/Policies.pdf" target="_blank">
+                    <img src="../images/Procedure1.png" alt="" /></a>
+            </div>
+            <div class="btn-grp">
+                <div class="right-btnGrp">
+                    <div>
+                        <img src="../images/Lock-Information.png" width="25" height="25">
+                        <button type="button" class="form-control btn-styles" id="btn-frgtpswd">
+                            Forget Password</button>
+                    </div>
+                    <div>
+                        <img src="../images/New.png" width="25" height="25">
+                        <a href="../Document/Policies.pdf" target="_blank" class="form-control btn-styles" id="btn-accOpen">Account Open
+                        <!-- <button type="button" >
+                            Account Open</button>-->
+                        </a>
+                    </div>
+                </div>
+                <div class="left-btnGrp">
+                    <div>
+                        <img src="../images/User-Login.png" alt="Login" width="25" height="25" />
+                        <button type="button" class="form-control btn-styles" id="btn-back">
+                            Login</button>
+                    </div>
+                </div>
+            </div>
+            <div class="front-box">
+                <div class="front-textContent col-12">
+                    <form class="mainLoginForm">
+                        <div class="top-btnGrp">
+                            <a class="form-control btn btn-light active" id="btn-loginPswd">
+                                <img src="../images/User-Login.png" width="26" height="26">Login with password</a>
+                            <a class="form-control btn btn-light" id="btn-loginOtp">
+                                <img src="../images/OTP.png" width="26" height="26">Login with OTP</a>
+                        </div>
+                        <hr />
+                        <div class="row btm-height">
+                            <div class="col-lg-12">
+                                <div id="cCompany_name" class="dropdown-ctrl"></div>
+                            </div>
+                        </div>
+                        <div class="row btm-height loginPswdForm">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control text-ctrl" id="cUserID" placeholder="Enter User Id"
+                                    name="cUserID">
+                            </div>
+                        </div>
+                        <div class="row btm-height loginPswdForm">
+                            <div class="col-lg-12">
+                                <input type="password" class="form-control text-ctrl" id="cPasswrd"
+                                    placeholder="Enter Password" name="cPasswrd">
+                            </div>
+                        </div>
+                        <div class="row btm-height loginOtpForm hide">
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control text-ctrl" id="cmobileNumber"
+                                    placeholder="Enter Mobile number" name="cmobileNumber">
+                            </div>
+                        </div>
+                        <div class="row btm-height loginOtpForm hide">
+                            <div class="col-lg-6">
+                                <input type="number" class="form-control text-ctrl" id="cloginOtp" placeholder="Enter OTP"
+                                    name="cloginOtp">
+                            </div>
+                            <div class="col-lg-6">
+                                <button type="button" class="form-control" id="btn-sendOtp">
+                                    Send OTP</button>
+                            </div>
+                        </div>
+                        <div class="row btm-height">
+                            <div class="col-lg-12">
+                                <div id="cCode_type" class="dropdown-ctrl"></div>
+                            </div>
+                        </div>
+                        <div class="row btm-height">
+
+                            <div class="col-lg-1">
+                                <div class="checkbox-cntrl" id="all-chkbox"></div>
+                            </div>
+                            <div class="col-lg-3">
+                                <img src="../images/allinone.png" width="80" height="20" class="chkBoxImg-style">
+                            </div>
+
+                            <div class="col-lg-1">
+                                <div class="checkbox-cntrl" id="Nsdl-chkbox"></div>
+                            </div>
+                            <div class="col-lg-3">
+                                <img src="../images/nsdl-img.png" width="80" height="20" class="chkBoxImg-style">
+                            </div>
+
+                            <div class="col-lg-1">
+                                <div class="checkbox-cntrl" id="Cdsl-chkbox"></div>
+                            </div>
+                            <div class="col-lg-3">
+                                <img src="../images/cdsl-img.png" width="80" height="20" class="chkBoxImg-style">
+                            </div>
+                        </div>
+                        <div class="row loginBtn-div">
+                            <button type="button" class="form-control" id="btn-login">
+                                Login</button>
+                            <button type="button" class="form-control" id="btn-cancel">
+                                Cancel</button>
+                        </div>
+                    </form>
+
+                    <form class="frgtPswdForm hide">
+                        <div class="row btm-height">
+                            <!-- <label class="col-lg-5 col-form-label" for="cUserID">User Id</label> -->
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control text-ctrl" id="frgtpswd-uid"
+                                    placeholder="Enter User Id" name="cUserID">
+                            </div>
+                        </div>
+                        <div class="row btm-height">
+                            <div class="col-lg-12">
+                                <div id="frgtpswd-SendPswd" class="dropdown-ctrl"></div>
+                            </div>
+                        </div>
+                        <div class="row btm-height">
+                            <!-- <label class="col-lg-5 col-form-label" for="cUserID">User Id</label> -->
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control text-ctrl" id="frgtpswd-Pan"
+                                    placeholder="Enter PAN number" name="cPan">
+                            </div>
+                        </div>
+                        <div class="row btm-height">
+                            <!-- <label class="col-lg-5 col-form-label" for="cUserID">User Id</label> -->
+                            <div class="col-lg-12">
+                                <div id='dt-DOB'></div>
+                            </div>
+                        </div>
+                        <div class="row btm-height">
+                            <!-- <label class="col-lg-5 col-form-label" for="cUserID">User Id</label> -->
+                            <div class="col-lg-12">
+                                <input type="text" class="form-control text-ctrl" id="frgtpswd-RegEmail"
+                                    placeholder="Enter Registered Email ID" name="cRegEmail">
+                            </div>
+                        </div>
+                        <div class="row loginBtn-div">
+                            <!--<div class="col-lg-6">-->
+                            <button type="button" class="form-control" id="frgtPswd-submit">
+                                Submit</button>
+                            <!--  </div>
+                    <div class="col-lg-6">-->
+                            <button type="button" class="form-control" id="frgtPswd-cancel">
+                                Cancel</button>
+                            <!-- </div>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div>
+                <label class="version fst-italic">Version: 22.9.10.1/2.1.4.9</label>
+                <label class="date-time fst-italic">21st September,2022</label>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="../scripts/jquery.js"></script>
+    <script src="../jqwidgets/jqx-all.js"></script>
+    <script src="../jqwidgets/jqxcore.js"></script>
+    <title>File input validation</title>
+</head>
+<script>
+     $(document).ready(function () {
+            var imageTypes = ['.gif', '.jpg', '.png'];
+            var videoTypes = ['.wmv', '.mov', '.avi', '.divx', '.mpeg', '.mpg', '.m4p'];
+            $('#jqxFileUpload').jqxFileUpload({ width: 300, uploadUrl: 'upload.php',
+             fileInputName: 'fileToUpload', renderFiles: function (fileName) {
+                var stopIndex = fileName.indexOf('.');
+                var name = fileName.slice(0, stopIndex);
+                var extension = fileName.slice(stopIndex);
+                var iconUrl;
+                debugger
+                if (imageTypes.indexOf(extension) !== -1) {
+                    iconUrl = '../../images/nav3.png';
+                } else if (videoTypes.indexOf(extension) !== -1) {
+                    iconUrl = '../../images/movie.png';
+                } else {
+                    iconUrl = '../../images/nav1.png';
+                }
+                return '<div><img src="' + iconUrl + '" style="dislplay: inline; width: 16px; height: 16px; margin-right: 5px;" /><span>' + name + '<strong>' + extension + '</strong></span></div>';
+            }
+            });
+        });
+</script>
+<body>
+    <div id="jqxFileUpload">
+    </div>
+</body>
+</html>
